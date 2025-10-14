@@ -463,9 +463,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135441030}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -959.93695, y: -540.0354, z: 0}
-  m_LocalScale: {x: 2.2666752, y: 2.2666752, z: 2.2666752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 777055542}
@@ -501,8 +501,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardView: {fileID: 1941723998}
-  layoutConfig: {fileID: 0}
-  cardPool: []
+  layoutConfig: {fileID: 11400000, guid: 026cf3583674a4f9892c9f8c78300909, type: 2}
+  cardPool:
+  - {fileID: 11400000, guid: 66bc69bf0808d419a95c09e697b9945a, type: 2}
+  - {fileID: 11400000, guid: 861c9220f11ac4f93b5330a18ecd603b, type: 2}
+  - {fileID: 11400000, guid: a99a7e0f7ec8348b087585408bd81cf8, type: 2}
+  - {fileID: 11400000, guid: 72c0c0f88eef94c7c8ddc9f75668936b, type: 2}
+  - {fileID: 11400000, guid: fa63fda194d2c425cac3ca664b742bca, type: 2}
+  - {fileID: 11400000, guid: 4393e98c2b2274126a0a733b3461174c, type: 2}
 --- !u!4 &1365046656
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +547,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 777055542}
     m_Modifications:
+    - target: {fileID: 6428550469696711641, guid: 118c1ce890bdf479189ace86be64dc1b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428550469696711641, guid: 118c1ce890bdf479189ace86be64dc1b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6428550470299798692, guid: 118c1ce890bdf479189ace86be64dc1b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
