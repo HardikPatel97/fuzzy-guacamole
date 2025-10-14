@@ -70,12 +70,11 @@ public class GamePresenter : IDisposable
             presenters.Add(cardPresenter);
         }
 
-        // TODO: Responsive layout logic
+        boardView.ArrangeCardsInGrid(layout);
     }
 
     private void OnCardClicked(CardModel cardModel)
     {
-        Debug.Log("OnCardClicked");
         if (!cardModel.IsInteractable.Value || cardModel.State.Value != CardState.FaceDown) return;
 
         cardModel.SetState(CardState.FaceUp);
