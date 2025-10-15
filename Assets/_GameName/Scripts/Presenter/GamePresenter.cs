@@ -15,7 +15,7 @@ public class GamePresenter : IDisposable
     private readonly IAudioService audioService;
 
     public readonly AsyncSubject<Unit> onCompleteBoardSetUp = new AsyncSubject<Unit>();
-    public readonly Subject<Unit> onGameOver = new Subject<Unit>();
+    public readonly AsyncSubject<Unit> onGameOver = new AsyncSubject<Unit>();
 
     private bool processingComparison = false;
     private bool gameOverTriggered = false; // prevent multiple triggers
