@@ -8,15 +8,31 @@ public class GameBootstrap : MonoBehaviour
 
     private GamePresenter presenter;
     private GameModel model;
+    private SaveService saveService;
 
     void Start()
     {
         model = new GameModel();
-        presenter = new GamePresenter(model, boardView, layoutConfig, cardPool);
+        saveService = new SaveService();
+
+        var savedData = saveService.LoadGame();
+        presenter = new GamePresenter(model, boardView, layoutConfig, cardPool, savedData);
     }
 
     void OnDestroy()
     {
         presenter?.Dispose();
+    }
+
+    void OnApplicationPause(bool pause)
+    {
+        if (pause && model != null)
+            saveService.SaveGame(model.ToSaveData());
+    }
+
+    void OnApplicationQuit()
+    {
+        if (model != null)
+            saveService.SaveGame(model.ToSaveData());
     }
 }
