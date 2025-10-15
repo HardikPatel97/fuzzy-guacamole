@@ -12,15 +12,17 @@ public class GameBootstrap : MonoBehaviour
     private GameplayMenuPresenter menuPresenter;
     private GameModel model;
     private SaveService saveService;
+    private SceneLoader sceneLoader;
 
     void Start()
     {
         model = new GameModel();
         saveService = new SaveService();
+        sceneLoader = new SceneLoader();
 
         var savedData = saveService.LoadGame();
         presenter = new GamePresenter(model, boardView, cardPool, savedData, audioService);
-        menuPresenter = new GameplayMenuPresenter(gameplayMenuView, model, saveService);
+        menuPresenter = new GameplayMenuPresenter(gameplayMenuView, model, saveService, presenter, sceneLoader);
     }
 
     void OnDestroy()

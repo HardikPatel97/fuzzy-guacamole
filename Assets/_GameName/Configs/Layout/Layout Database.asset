@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Layout Database
   m_EditorClassIdentifier: 
   layouts:
-  - columns: 2
-    rows: 2
+  - rows: 2
+    columns: 2
     spacing: {x: 10, y: 10}
-  - columns: 3
-    rows: 2
+  - rows: 2
+    columns: 3
     spacing: {x: 10, y: 10}
-  - columns: 3
-    rows: 3
+  - rows: 4
+    columns: 3
     spacing: {x: 10, y: 10}
-  - columns: 4
-    rows: 3
+  - rows: 3
+    columns: 4
     spacing: {x: 10, y: 10}
