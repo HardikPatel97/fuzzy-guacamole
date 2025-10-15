@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GameBootstrap : MonoBehaviour
 {
-    public BoardView boardView;
-    public LayoutConfig layoutConfig;
-    public CardData[] cardPool; // assign all available card data assets
+    [SerializeField] private BoardView boardView;
+    [SerializeField] private LayoutConfig layoutConfig;
+    [SerializeField] private CardData[] cardPool; // assign all available card data assets
+    [SerializeField] private AudioService audioService;
+    [SerializeField] private SoundDatabase soundDatabase;
 
     private GamePresenter presenter;
     private GameModel model;
@@ -16,7 +18,7 @@ public class GameBootstrap : MonoBehaviour
         saveService = new SaveService();
 
         var savedData = saveService.LoadGame();
-        presenter = new GamePresenter(model, boardView, layoutConfig, cardPool, savedData);
+        presenter = new GamePresenter(model, boardView, layoutConfig, cardPool, savedData, audioService);
     }
 
     void OnDestroy()
