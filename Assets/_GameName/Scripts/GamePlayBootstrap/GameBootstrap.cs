@@ -3,12 +3,13 @@ using UnityEngine;
 public class GameBootstrap : MonoBehaviour
 {
     [SerializeField] private BoardView boardView;
-    [SerializeField] private LayoutConfig layoutConfig;
+    [SerializeField] private GameplayMenuView gameplayMenuView;
     [SerializeField] private CardData[] cardPool; // assign all available card data assets
     [SerializeField] private AudioService audioService;
     [SerializeField] private SoundDatabase soundDatabase;
 
     private GamePresenter presenter;
+    private GameplayMenuPresenter menuPresenter;
     private GameModel model;
     private SaveService saveService;
 
@@ -18,7 +19,8 @@ public class GameBootstrap : MonoBehaviour
         saveService = new SaveService();
 
         var savedData = saveService.LoadGame();
-        presenter = new GamePresenter(model, boardView, layoutConfig, cardPool, savedData, audioService);
+        presenter = new GamePresenter(model, boardView, cardPool, savedData, audioService);
+        menuPresenter = new GameplayMenuPresenter(gameplayMenuView, model, saveService);
     }
 
     void OnDestroy()
@@ -26,6 +28,7 @@ public class GameBootstrap : MonoBehaviour
         presenter?.Dispose();
     }
 
+    /*
     void OnApplicationPause(bool pause)
     {
         if (pause && model != null)
@@ -37,4 +40,5 @@ public class GameBootstrap : MonoBehaviour
         if (model != null)
             saveService.SaveGame(model.ToSaveData());
     }
+    */
 }
